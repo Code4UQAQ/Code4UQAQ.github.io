@@ -4,6 +4,7 @@ import { siteConfig } from "../config";
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+const hasResume = Boolean(siteConfig.resume?.url);
 ---
 
 <header
@@ -52,6 +53,19 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
               class="text-gray-700 hover:text-black transition-colors font-medium"
             >
               Education
+            </a>
+          </li>
+        )
+      }
+      {
+        hasResume && (
+          <li>
+            <a
+              href={siteConfig.resume.url}
+              download={siteConfig.resume.downloadName}
+              class="text-gray-700 hover:text-black transition-colors font-medium"
+            >
+              Resume
             </a>
           </li>
         )
